@@ -1,0 +1,175 @@
+﻿@model StormEventsViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Index</h1>
+<div>
+    <form asp-page="/StormEvents/Index" method="get">
+        <div class="form-actions no-color">
+            <p>
+                Search: <input type="text" name="searchText" value="@Model.SearchText" />
+                <input type="submit" value="Search" class="btn btn-primary btn-sm" />
+                <a asp-page="/StormEvents/Index?reset=true" class="btn btn-secondary btn-sm">Reset</a>
+            </p>
+        </div>
+    </form>
+</div>
+@if (Model.Message != "")
+{
+    <h3 style="color:red">@Model.Message</h3>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Start Time
+            </th>
+            <th>
+                End Time
+            </th>
+            <th>
+                Episode Id
+            </th>
+            <th>
+                Event Id
+            </th>
+            <th>
+                State
+            </th>
+            <th>
+                EventType
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.InjuriesDirect)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InjuriesIndirect)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeathsDirect)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeathsIndirect)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DamageProperty)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DamageCrops)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Source)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BeginLocation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EndLocation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BeginLat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BeginLon)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EndLat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EndLon)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EpisodeNarrative)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventNarrative)
+                </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.StormEvents)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EpisodeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventType)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.InjuriesDirect)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InjuriesIndirect)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeathsDirect)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeathsIndirect)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DamageProperty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DamageCrops)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Source)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BeginLocation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndLocation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BeginLat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BeginLon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndLat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndLon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EpisodeNarrative)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventNarrative)
+                    </td>*@
+                <td>
+                    <a asp-controller="StormEvents"
+                       asp-action="Details"
+                       asp-route-id="@item.EventId"
+                       class="btn btn-info btn-sm">
+                        Details
+                    </a>
+                    <a asp-controller="StormEvents"
+                       asp-action="Edit"
+                       asp-route-id="@item.EventId"
+                       class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

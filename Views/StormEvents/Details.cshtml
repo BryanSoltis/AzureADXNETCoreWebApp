@@ -1,0 +1,150 @@
+﻿@model StormEventViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>StormEvent</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StormEvent.StartTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StormEvent.StartTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StormEvent.EndTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StormEvent.EndTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StormEvent.EpisodeId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StormEvent.EpisodeId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StormEvent.EventId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StormEvent.EventId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StormEvent.State)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StormEvent.State)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StormEvent.EventType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StormEvent.EventType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StormEvent.InjuriesDirect)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StormEvent.InjuriesDirect)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StormEvent.InjuriesIndirect)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StormEvent.InjuriesIndirect)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StormEvent.DeathsDirect)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StormEvent.DeathsDirect)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StormEvent.DeathsIndirect)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StormEvent.DeathsIndirect)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StormEvent.DamageProperty)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StormEvent.DamageProperty)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StormEvent.DamageCrops)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StormEvent.DamageCrops)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StormEvent.Source)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StormEvent.Source)
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BeginLocation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BeginLocation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EndLocation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndLocation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BeginLat)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BeginLat)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BeginLon)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BeginLon)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EndLat)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndLat)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EndLon)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndLon)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EpisodeNarrative)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EpisodeNarrative)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EventNarrative)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EventNarrative)
+        </dd>
+        *@
+    </dl>
+</div>
+<div>
+    <a asp-controller="StormEvents"
+       asp-action="Edit"
+       asp-route-id="@Model.StormEvent.EventId"
+        class="btn btn-primary btn-sm">
+        Edit
+    </a>
+    <a asp-action="Index"  class="btn btn-secondary btn-sm">Back to List</a>
+</div>

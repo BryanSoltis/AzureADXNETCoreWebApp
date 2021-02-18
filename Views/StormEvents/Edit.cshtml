@@ -1,0 +1,137 @@
+﻿@model StormEventViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>StormEvent</h4>
+<hr />
+
+@if (Model.Message != "")
+{
+    <h3 style="color:red">@Model.Message</h3>
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StormEvent.StartTime" class="control-label"></label>
+                <input asp-for="StormEvent.StartTime" class="form-control" />
+                <span asp-validation-for="StormEvent.StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.EndTime" class="control-label"></label>
+                <input asp-for="StormEvent.EndTime" class="form-control" />
+                <span asp-validation-for="StormEvent.EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.EpisodeId" class="control-label"></label>
+                <input asp-for="StormEvent.EpisodeId" class="form-control" />
+                <span asp-validation-for="StormEvent.EpisodeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.EventId" class="control-label"></label>
+                <input asp-for="StormEvent.EventId" class="form-control" />
+                <span asp-validation-for="StormEvent.EventId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.State" class="control-label"></label>
+                <input asp-for="StormEvent.State" class="form-control" />
+                <span asp-validation-for="StormEvent.State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.EventType" class="control-label"></label>
+                <input asp-for="StormEvent.EventType" class="form-control" />
+                <span asp-validation-for="StormEvent.EventType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.InjuriesDirect" class="control-label"></label>
+                <input asp-for="StormEvent.InjuriesDirect" class="form-control" />
+                <span asp-validation-for="StormEvent.InjuriesDirect" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.InjuriesIndirect" class="control-label"></label>
+                <input asp-for="StormEvent.InjuriesIndirect" class="form-control" />
+                <span asp-validation-for="StormEvent.InjuriesIndirect" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.DeathsDirect" class="control-label"></label>
+                <input asp-for="StormEvent.DeathsDirect" class="form-control" />
+                <span asp-validation-for="StormEvent.DeathsDirect" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.DeathsIndirect" class="control-label"></label>
+                <input asp-for="StormEvent.DeathsIndirect" class="form-control" />
+                <span asp-validation-for="StormEvent.DeathsIndirect" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.DamageProperty" class="control-label"></label>
+                <input asp-for="StormEvent.DamageProperty" class="form-control" />
+                <span asp-validation-for="StormEvent.DamageProperty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.DamageCrops" class="control-label"></label>
+                <input asp-for="StormEvent.DamageCrops" class="form-control" />
+                <span asp-validation-for="StormEvent.DamageCrops" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.Source" class="control-label"></label>
+                <input asp-for="StormEvent.Source" class="form-control" />
+                <span asp-validation-for="StormEvent.Source" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.BeginLocation" class="control-label"></label>
+                <input asp-for="StormEvent.BeginLocation" class="form-control" />
+                <span asp-validation-for="StormEvent.BeginLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.EndLocation" class="control-label"></label>
+                <input asp-for="StormEvent.EndLocation" class="form-control" />
+                <span asp-validation-for="StormEvent.EndLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.BeginLat" class="control-label"></label>
+                <input asp-for="StormEvent.BeginLat" class="form-control" />
+                <span asp-validation-for="StormEvent.BeginLat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.BeginLon" class="control-label"></label>
+                <input asp-for="StormEvent.BeginLon" class="form-control" />
+                <span asp-validation-for="StormEvent.BeginLon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.EndLat" class="control-label"></label>
+                <input asp-for="StormEvent.EndLat" class="form-control" />
+                <span asp-validation-for="StormEvent.EndLat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.EndLon" class="control-label"></label>
+                <input asp-for="StormEvent.EndLon" class="form-control" />
+                <span asp-validation-for="StormEvent.EndLon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.EpisodeNarrative" class="control-label"></label>
+                @Html.TextAreaFor(model => model.StormEvent.EpisodeNarrative, new { @class = "form-control", @rows = 4 })
+                <span asp-validation-for="StormEvent.EpisodeNarrative" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StormEvent.EventNarrative" class="control-label"></label>
+                @Html.TextAreaFor(model => model.StormEvent.EventNarrative, new { @class = "form-control", @rows = 4 })
+                <span asp-validation-for="StormEvent.EventNarrative" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary btn-sm" />
+
+                <a asp-action="Index" class="btn btn-secondary btn-sm">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
