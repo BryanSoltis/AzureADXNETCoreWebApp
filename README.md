@@ -78,10 +78,11 @@ Your web application registration should include the following information:
 
 ```JSon
   "ProjectOptions": {
-    "ADXCluster": "[Azure ADX Cluster Name]",
-    "ADXDatabase": "[Azure ADX Database Name]",
-    "ADXTable": "[Azure ADX Table Name]",
-    "APIURL": "[API URL]"
+    "ADXCluster":"[Azure ADX Cluster Name]",
+    "ADXDatabase":"[Azure ADX Database Name]",
+    "ADXTable":"[Azure ADX Table Name]",
+    "APIURL":"[API URL]",
+    "CacheTimeout": 1000
   }
 ```
 
