@@ -49,7 +49,7 @@ namespace AzureADXNETCoreWebApp
             //Configuring appsettings section AzureAdB2C, into IOptions
             services.AddOptions();
             services.Configure<OpenIdConnectOptions>(Configuration.GetSection("AzureAdB2C"));
-            services.Configure<ProjectOptions>(Configuration.GetSection("Custom"));
+            services.Configure<ProjectOptions>(Configuration.GetSection("ProjectOptions"));
             services.AddSingleton<IDataHelper>(sp => new DataHelper(
                 sp.GetRequiredService<IOptions<ProjectOptions>>()));
 

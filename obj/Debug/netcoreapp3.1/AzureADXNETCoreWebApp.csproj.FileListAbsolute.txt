@@ -75,3 +75,4 @@ C:\Users\brsoltis\OneDrive - Microsoft\Desktop\Blogs\2021-02-CreatingAnADX-Drive
 C:\Users\brsoltis\OneDrive - Microsoft\Desktop\Blogs\2021-02-CreatingAnADX-DrivenAppUsingNET Core\AzureADXNETCoreWebApp\obj\Debug\netcoreapp3.1\AzureADXNETCoreWebApp.dll
 C:\Users\brsoltis\OneDrive - Microsoft\Desktop\Blogs\2021-02-CreatingAnADX-DrivenAppUsingNET Core\AzureADXNETCoreWebApp\obj\Debug\netcoreapp3.1\AzureADXNETCoreWebApp.pdb
 C:\Users\brsoltis\OneDrive - Microsoft\Desktop\Blogs\2021-02-CreatingAnADX-DrivenAppUsingNET Core\AzureADXNETCoreWebApp\obj\Debug\netcoreapp3.1\AzureADXNETCoreWebApp.genruntimeconfig.cache
+C:\Users\brsoltis\OneDrive - Microsoft\Desktop\Blogs\2021-02-CreatingAnADX-DrivenAppUsingNET Core\AzureADXNETCoreWebApp\obj\Debug\netcoreapp3.1\AzureADXNETCoreWebApp.csprojAssemblyReference.cache
