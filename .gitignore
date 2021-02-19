@@ -1,6 +1,9 @@
-./vs
-./obj
-./bin
+*.suo
+*.user
+bin
+obj
+packages
+.vs
 # ignore appsettings configuration files
 **/appsettings.development.json
 **/appsettings.staging.json

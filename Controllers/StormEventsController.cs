@@ -41,8 +41,8 @@ namespace AzureADXNETCoreWebApp.Controllers
 
                 List<StormEvent> lstStormEvents;
 
-                bool isExist = _cache.TryGetValue("AllStormEvents" + searchText, out lstStormEvents);
-                if (!isExist)
+                bool isExist = _cache.TryGetValue("AllStormEvents", out lstStormEvents);
+                if (!isExist || data.SearchText != "")
                 {
                     lstStormEvents = _dataHelper.GetStormEvents(User.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value, searchText).Result;
                     var cacheEntryOptions = new MemoryCacheEntryOptions()
@@ -174,7 +174,6 @@ namespace AzureADXNETCoreWebApp.Controllers
             // Clear the cached data
             _cache.Remove("StormEvent" + stormevent.EventId);
             _cache.Remove("AllStormEvents");
-
             return View(data);
         }
     }

@@ -40,7 +40,7 @@ namespace AzureADXNETCoreWebApp.Helpers
                 {
                     // The query -- Note that for demonstration purposes, we send a query that asks for two different
                     // result sets (HowManyRecords and SampleRecords).
-                    var query = "StormEvents| extend i = ingestion_time() | join(StormEvents | summarize i = max(ingestion_time()) by EventId) on $left.EventId == $right.EventId and $left.i ==$right.i | sort by StartTime desc | where State in (" + userstates + ") and  isnotnull(EndTime)";
+                    var query = "StormEvents| extend i = ingestion_time() | join(StormEvents | summarize i = max(ingestion_time()) by EventId) on $left.EventId == $right.EventId and $left.i ==$right.i | sort by StartTime desc | where State in (" + userstates + ")";
                     if (searchText != null)
                     {
                         query += " and * has '" + searchText + "'";
@@ -81,7 +81,7 @@ namespace AzureADXNETCoreWebApp.Helpers
                 {
                     // The query -- Note that for demonstration purposes, we send a query that asks for two different
                     // result sets (HowManyRecords and SampleRecords).                
-                    var query = "StormEvents| extend i = ingestion_time() | join(StormEvents | summarize i = max(ingestion_time()) by EventId) on $left.EventId == $right.EventId and $left.i ==$right.i | where State in (" + userstates + ") and EventId ==\"" + eventId + "\" and  isnotnull(EndTime) ";
+                    var query = "StormEvents| extend i = ingestion_time() | join(StormEvents | summarize i = max(ingestion_time()) by EventId) on $left.EventId == $right.EventId and $left.i ==$right.i | where State in (" + userstates + ") and EventId ==\"" + eventId + "\"";
 
                     // It is strongly recommended that each request has its own unique
                     // request identifier. This is mandatory for some scenarios (such as cancelling queries)
