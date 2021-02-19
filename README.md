@@ -4,7 +4,7 @@
 ## Overview
 This project is a .NET Core Web App that manages Azure ADX data, with Azure B2C Authentication. It was created as a POC for several concepts and is an example of how you can leverage these components for a solution.
 
-This project was originall ported from the **Azure Samples Active Directory ASP .NET Core Web App OpenID Connect** project. This project provides all the required for functionality to authenticate users with Azure B2C. The **1-5-B2C** section was used for this POC.
+This project was originally ported from the **Azure Samples Active Directory ASP .NET Core Web App OpenID Connect** project. That project provides all the required for functionality to authenticate users with Azure B2C. The **1-5-B2C** section was used for this POC.
 
 https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C
 
@@ -86,7 +86,7 @@ Your web application registration should include the following information:
 
 ### Step 7: Create a sample API to return the list of records for the user's assigned states. (OPTIONAL)
 
-The project uses an API to return a list of states the ADX will be filtered on. The project will pass the user's OID value (from the Azure B2C authentication) as a query pararemeter to the specifed API URL. The API should return a list of states to be used within the ADX querries.
+The project uses an API to return a list of states the ADX data will be filtered on. The code pasess the user's OID value (from the Azure B2C authentication) as a query pararemeter to the specifed API URL. The API should return a list of states to be used within the ADX querries.
 
 **NOTE** - The project is confiogured to return the top 100 records for all states, if an API is not present.
 
