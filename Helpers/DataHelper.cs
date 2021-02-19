@@ -38,15 +38,12 @@ namespace AzureADXNETCoreWebApp.Helpers
 
                 using (var queryProvider = KustoClientFactory.CreateCslQueryProvider(kcsb))
                 {
-                    // The query -- Note that for demonstration purposes, we send a query that asks for two different
-                    // result sets (HowManyRecords and SampleRecords).
                     var query = "StormEvents| extend i = ingestion_time() | join(StormEvents | summarize i = max(ingestion_time()) by EventId) on $left.EventId == $right.EventId and $left.i ==$right.i | sort by StartTime desc | take 100 | where isnotnull(EventId)";
 
                     if (userstates != "")
                     {
                         query += " and State in (" + userstates + ") ";
                     }
-
 
                     if (searchText != null)
                     {
@@ -86,9 +83,7 @@ namespace AzureADXNETCoreWebApp.Helpers
 
                 using (var queryProvider = KustoClientFactory.CreateCslQueryProvider(kcsb))
                 {
-                    // The query -- Note that for demonstration purposes, we send a query that asks for two different
-                    // result sets (HowManyRecords and SampleRecords).                
-                    var query = "StormEvents| extend i = ingestion_time() | join(StormEvents | summarize i = max(ingestion_time()) by EventId) on $left.EventId == $right.EventId and $left.i ==$right.i | take 100 | where EventId ==\"" + eventId + "\"";
+                    var query = "StormEvents| extend i = ingestion_time() | join(StormEvents | summarize i = max(ingestion_time()) by EventId) on $left.EventId == $right.EventId and $left.i ==$right.i | take 1 | where EventId ==\"" + eventId + "\"";
 
                     if (userstates != "")
                     {
@@ -143,10 +138,6 @@ namespace AzureADXNETCoreWebApp.Helpers
                         Stream = GenericHelper.GenerateStreamFromString(update)
                     };
 
-                    // It is strongly recommended that each request has its own unique
-                    // request identifier. This is mandatory for some scenarios (such as cancelling queries)
-                    // and will make troubleshooting easier in others.
-                    var clientRequestProperties = new ClientRequestProperties() { ClientRequestId = Guid.NewGuid().ToString() };
                     await queryProvider.IngestFromStreamAsync(sd, kustoIngestionProperties);
                 }
                 return true;
