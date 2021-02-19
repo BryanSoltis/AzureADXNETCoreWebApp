@@ -83,7 +83,7 @@ namespace AzureADXNETCoreWebApp.Helpers
 
                 using (var queryProvider = KustoClientFactory.CreateCslQueryProvider(kcsb))
                 {
-                    var query = "StormEvents| extend i = ingestion_time() | join(StormEvents | summarize i = max(ingestion_time()) by EventId) on $left.EventId == $right.EventId and $left.i ==$right.i | take 1 | where EventId ==\"" + eventId + "\"";
+                    var query = "StormEvents| extend i = ingestion_time() | join(StormEvents | summarize i = max(ingestion_time()) by EventId) on $left.EventId == $right.EventId and $left.i ==$right.i | where EventId ==\"" + eventId + "\"";
 
                     if (userstates != "")
                     {
