@@ -18,7 +18,8 @@ The following are key aspects of the project:
  - [Sample ADX data ingestion](https://docs.microsoft.com/en-us/azure/data-explorer/ingest-sample-data)
  - [Kusto .NET SDK](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/api/netfx/about-the-sdk) integration 
  - [MemoryCache](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/memory?view=aspnetcore-3.1) integration
- - Dependency Injection
+ - [Dependency Injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1)
+ - [Options pattern in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1)
 
 ## Setup
 In order to run the demo, you will need to compete the following steps to create your environment.
