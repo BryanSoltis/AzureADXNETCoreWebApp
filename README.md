@@ -23,19 +23,17 @@ The following are key aspects of the project:
 ## Setup
 In order to run the demo, you will need to compete the following steps to create your environment.
 
-### Step 1: Get your own Azure AD B2C tenant
+### Step 1: Get your own Azure AD B2C tenant (From [1-5-B2C Project](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C))
 
 If you don't have an Azure AD B2C tenant yet, you'll need to create an Azure AD B2C tenant by following the [Tutorial: Create an Azure Active Directory B2C tenant](https://azure.microsoft.com/documentation/articles/active-directory-b2c-get-started).
 
-### Step 2: Create your own user flow (policy)
+### Step 2: Create your own user flow (policy) (From [1-5-B2C Project](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C))
 
 This sample uses a unified sign-up/sign-in user flow (policy). Create this policy by following [these instructions on creating an AAD B2C tenant](https://azure.microsoft.com/documentation/articles/active-directory-b2c-reference-policies). You may choose to include as many or as few identity providers as you wish, but make sure **DisplayName** is checked in `User attributes` and `Application claims`.
 
 If you already have an existing unified sign-up/sign-in user flow (policy) in your Azure AD B2C tenant, feel free to re-use it. The is no need to create a new one just for this sample.
 
-Copy this policy name, so you can use it in step 5.
-
-### Step 3: Create your own Web app
+### Step 3: Create your own Web app (From [1-5-B2C Project](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C))
 
 Now you need to [register your web app in your B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-application), so that it has its own Application ID.
 
@@ -45,7 +43,7 @@ Your web application registration should include the following information:
 - Set the **Reply URL** to `https://localhost:44316/signin-oidc`.
 - Copy the Application ID generated for your application, so you can use it in the next step.
 
-### Step 4: Configure the sample with your app coordinates
+### Step 4: Configure the sample with your app coordinates (From [1-5-B2C Project](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C))
 
 1. Open the `appsettings.json` file.
 2. Find the assignment for `Instance` and replace the value with your tenant name. For example, `https://fabrikam.b2clogin.com`
@@ -62,13 +60,35 @@ Your web application registration should include the following information:
     "SignUpSignInPolicyId": "<your-sign-up-in-policy>"
   }
 ```
-### Step 5: Create a sample API to return the list of records for the user's assigned states.
+
+### Step 5: Configure / Populate ADX with sample data
+
+1. Create a new ADX Cluster.
+2. Create a new ADX Database.
+3. Use this [guide](https://docs.microsoft.com/en-us/azure/data-explorer/ingest-sample-data) to ingest the sample **StormEvents** data.
+
+### Step 6: Update your project with the ADX configuration
+
+1. Open the `appsettings.json` file.
+2. Find the assignment for `ADXCluster` and replace the value with your ADX Cluster Name.
+3. Find the assignment for `ADXDatabase` and replace the value with your ADX Database Name.
+4. Find the assignment for `ADXTable` and replace the value with your ADX Table Name.
+5. Find the assignment for `APIURL` and replace with the URL of your API from **Step 7 below**.
+
+```JSon
+  "ProjectOptions": {
+    "ADXCluster": "[Azure ADX Cluster Name]",
+    "ADXDatabase": "[Azure ADX Database Name]",
+    "ADXTable": "[Azure ADX Table Name]",
+    "APIURL": "[API URL]"
+  }
+```
+
+### Step 7: Create a sample API to return the list of records for the user's assigned states. (OPTIONAL)
 
 The project uses an API to return a list of states the ADX will be filtered on. The project will pass the user's OID value (from the Azure B2C authentication) as a query pararemeter to the specifed API URL. The API should return a list of states to be used within the ADX querries.
 
-**NOTE**
-
-The project is confiogured to return the top 100 records for all states, if an API is not present.
+**NOTE** - The project is confiogured to return the top 100 records for all states, if an API is not present.
 
 Here is a sample API (using an Azure Function) to return values.
 
@@ -97,28 +117,3 @@ Here is a sample API (using an Azure Function) to return values.
 
 1. Create an API to return a list of user states.
 2. Deploy your API to an accessible URL.
-
-
-### Step 6: Configure / Populate ADX with sample data
-
-1. Create a new ADX Cluster.
-2. Create a new ADX Database.
-3. Use this [guide](https://docs.microsoft.com/en-us/azure/data-explorer/ingest-sample-data) to ingest the sample **StormEvents** data.
-
-### Stewp 7: Update your project with the ADX configuration
-
-1. Open the `appsettings.json` file.
-2. Find the assignment for `ADXCluster` and replace the value with your ADX Cluster Name.
-3. Find the assignment for `ADXDatabase` and replace the value with your ADX Database Name.
-4. Find the assignment for `ADXTable` and replace the value with your ADX Table Name.
-5. Find the assignment for `APIURL` and replace with the URL of your API from **Step 5**.
-
-```JSon
-  "ProjectOptions": {
-    "ADXCluster": "[Azure ADX Cluster Name]",
-    "ADXDatabase": "[Azure ADX Database Name]",
-    "ADXTable": "[Azure ADX Table Name]",
-    "APIURL": "[API URL]"
-  }
-```
-
