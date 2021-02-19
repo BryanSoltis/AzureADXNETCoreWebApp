@@ -44,6 +44,8 @@ namespace AzureADXNETCoreWebApp
             services.AddControllersWithViews()
                 .AddMicrosoftIdentityUI();
 
+            services.AddHttpContextAccessor();
+
             services.AddRazorPages();
 
             //Configuring appsettings section AzureAdB2C, into IOptions
@@ -51,7 +53,7 @@ namespace AzureADXNETCoreWebApp
             services.Configure<OpenIdConnectOptions>(Configuration.GetSection("AzureAdB2C"));
             services.Configure<ProjectOptions>(Configuration.GetSection("ProjectOptions"));
             services.AddSingleton<IDataHelper>(sp => new DataHelper(
-                sp.GetRequiredService<IOptions<ProjectOptions>>()));
+                sp.GetRequiredService<IOptions<ProjectOptions>>(), sp.GetRequiredService<IHttpContextAccessor>()));
 
             services.AddDistributedMemoryCache();
 

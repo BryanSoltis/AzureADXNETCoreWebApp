@@ -6,5 +6,6 @@
         public string ADXDatabase { get; set; }
         public string ADXTable { get; set; }
         public string APIURL { get; set; }
+        public int CacheTimeout { get; set; }
     }
 }
