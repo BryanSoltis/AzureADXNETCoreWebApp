@@ -66,6 +66,10 @@ Your web application registration should include the following information:
 
 The project uses an API to return a list of states the ADX will be filtered on. The project will pass the user's OID value (from the Azure B2C authentication) as a query pararemeter to the specifed API URL. The API should return a list of states to be used within the ADX querries.
 
+**NOTE**
+
+The project is confiogured to return the top 100 records for all states, if an API is not present.
+
 Here is a sample API (using an Azure Function) to return values.
 
     public static async Task<IActionResult> Run(
@@ -91,23 +95,23 @@ Here is a sample API (using an Azure Function) to return values.
       return new OkObjectResult(lstids);
     }
 
-1. Create an API to return a list of user states
-2. Deploy your API to an accessible URL
+1. Create an API to return a list of user states.
+2. Deploy your API to an accessible URL.
 
 
 ### Step 6: Configure / Populate ADX with sample data
 
-1. Create a new ADX Cluster
-2. Create a new ADX Database
+1. Create a new ADX Cluster.
+2. Create a new ADX Database.
 3. Use this [guide](https://docs.microsoft.com/en-us/azure/data-explorer/ingest-sample-data) to ingest the sample **StormEvents** data.
 
 ### Stewp 7: Update your project with the ADX configuration
 
 1. Open the `appsettings.json` file.
-2. Find the assignment for `ADXCluster` and replace the value with your ADX Cluster Name
-3. Find the assignment for `ADXDatabase` and replace the value with your ADX Database Name
-4. Find the assignment for `ADXTable` and replace the value with your ADX Table Name
-5. Find the assignment for `APIURL` and replace with the URL of your API from **Step 5**
+2. Find the assignment for `ADXCluster` and replace the value with your ADX Cluster Name.
+3. Find the assignment for `ADXDatabase` and replace the value with your ADX Database Name.
+4. Find the assignment for `ADXTable` and replace the value with your ADX Table Name.
+5. Find the assignment for `APIURL` and replace with the URL of your API from **Step 5**.
 
 ```JSon
   "ProjectOptions": {
