@@ -1,6 +1,12 @@
 # AzureADXNETCoreWebApp
 .NET Core Web App to manage Azure ADX data, with Azure B2C authentication
 
+## Blog
+This repo correlates to an article publsihed in 2021-02:
+
+[**Managing ADX Data with .NET Core and Azure B2C**](https://soltisweb.com/blog/detail/2021-02-22-managingadxdatawithnetcore)
+
+
 ## Overview
 This project is a .NET Core Web App that manages Azure ADX data, with Azure B2C Authentication. It was created as a POC for several concepts and is an example of how you can leverage these components for a solution.
 
